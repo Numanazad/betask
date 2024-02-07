@@ -1,0 +1,21 @@
+<form action="/create" method="post">
+    <input type="text" name="name" placeholder="Name" required>
+    <input type="text" name="color" placeholder="Color" required>
+    <input type="number" name="length" placeholder="Length (cm)" required>
+    <input type="number" name="width" placeholder="Width (cm)" required>
+    <input type="number" name="height" placeholder="Height (cm)" required>
+    <input type="number" name="weight" placeholder="Weight (kg)" required>
+    <input type="number" name="qty" placeholder="Quantity" required>
+    <label for="stackable">Stackable:</label>
+    <select name="stackable" id="stackable">
+      <option value="true">Yes</option>
+      <option value="false">No</option>
+    </select>
+    <label for="tiltable">Tiltable:</label>
+    <select name="tiltable" id="tiltable">
+      <option value="true">Yes</option>
+      <option value="false">No</option>
+    </select>
+    <button type="submit">Submit</button>
+  </form>
+  

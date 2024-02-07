@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Item List</title>
+  <style>
+    .round {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+    }
+  </style>
+</head>
+<body>
+    <form id="itemForm" action="/items/update" method="post">
+        <h1>Items</h1>
+        <table id="itemTable">
+            <thead>
+            <tr>
+                <th>COLOR</th>
+                <th>NAME</th>
+                <th>LENGTH (CM)</th>
+                <th>WIDTH (CM)</th>
+                <th>HEIGHT (CM)</th>
+                <th>WEIGHT (KG)</th>
+                <th>QTY</th>
+                <th>STACKABLE</th>
+                <th>TILTABLE</th>
+            </tr>
+            </thead>
+            <tbody>
+                <% items.forEach(function(item, index) { %>
+                    <tr id="row_<%= index %>">
+                        <input type="hidden" name="items[<%= index %>][id]" value="<%= item.id %>">
+                        <td><input type="text" name="items[<%= index %>][name]" value="<%= item.name %>"></td>
+                        <td><input type="text" name="items[<%= index %>][color]" value="<%= item.color %>"></td>
+                        <td><input type="number" name="items[<%= index %>][length]" value="<%= item.length %>"></td>
+                        <td><input type="number" name="items[<%= index %>][width]" value="<%= item.width %>"></td>
+                        <td><input type="number" name="items[<%= index %>][height]" value="<%= item.height %>"></td>
+                        <td><input type="number" name="items[<%= index %>][weight]" value="<%= item.weight %>"></td>
+                        <td><input type="number" name="items[<%= index %>][qty]" value="<%= item.qty %>"></td>
+                        <td><input type="checkbox" name="items[<%= index %>][stackable]" <%= item.stackable ? 'checked' : '' %>></td>
+                        <td><input type="checkbox" name="items[<%= index %>][tiltable]" <%= item.tiltable ? 'checked' : '' %>></td>
+                    </tr>
+                <% }); %>
+            </tbody>                     
+        </table>
+        <button type="submit" >Save in Database</button>
+        <button type="button" onclick="location.href='/close'">Close</button>
+    </form>
+</body>
+</html>
