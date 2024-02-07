@@ -17,7 +17,7 @@ export class AppController {
 
   @Get('/all/view')
   async findAll(@Res() res: Response): Promise<any> {
-    const items = await this.appService.findAll(res);
+    const items = await this.appService.findAll();
     res.render('index', {items});
   }
 
@@ -30,8 +30,8 @@ export class AppController {
   @Post('items/update')
   async updateItems(@Body() updateItemsDto: UpdateItemDto[], @Res() res: Response) {
     try {
-      const updatedItems = await this.appService.updateAndGetItems(updateItemsDto);
-      res.render('index', { updatedItems });
+      const items = await this.appService.updateAndGetItems(updateItemsDto);
+      res.redirect('/all/view');
     } catch (error) {
       console.log(error);
       res.status(500).send('Internal server error');

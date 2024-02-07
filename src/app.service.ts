@@ -1,5 +1,4 @@
 import { Injectable, Res } from '@nestjs/common';
-import { Response } from 'express';
 import { CreateItemDto } from './dto/createDto';
 import { Document, Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
@@ -16,7 +15,7 @@ export class AppService {
     return newItem.save();
   }
   
-  async findAll(@Res() res: Response): Promise<any> {
+  async findAll(): Promise<any> {
     const items = await this.itemModel.find().exec();
     return items;
   }
