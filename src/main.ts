@@ -16,7 +16,7 @@ async function bootstrap() {
   app.setViewEngine('ejs');
   const port = process.env.PORT || 3000;
   await app.listen(port)
-  .then(()=>console.log('listening to 3000'))
+  .then(()=>console.log(`listening to ${port}`))
   .catch((err)=>console.log('error:', err));
 }
 bootstrap();
