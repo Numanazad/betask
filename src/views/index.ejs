@@ -32,8 +32,8 @@
                 <% items.forEach(function(item, index) { %>
                     <tr id="row_<%= index %>">
                         <input type="hidden" name="items[<%= index %>][id]" value="<%= item.id %>">
-                        <td><input type="text" name="items[<%= index %>][name]" value="<%= item.name %>"></td>
-                        <td><input type="text" name="items[<%= index %>][color]" value="<%= item.color %>"></td>
+                        <td><input type="text" name="items[<%= index %>][name]" value="<%= item.color %>"></td>
+                        <td><input type="text" name="items[<%= index %>][color]" value="<%= item.name %>"></td>
                         <td><input type="number" name="items[<%= index %>][length]" value="<%= item.length %>"></td>
                         <td><input type="number" name="items[<%= index %>][width]" value="<%= item.width %>"></td>
                         <td><input type="number" name="items[<%= index %>][height]" value="<%= item.height %>"></td>

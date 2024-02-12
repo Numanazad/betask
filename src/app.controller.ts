@@ -10,15 +10,15 @@ export class AppController {
     private readonly appService: AppService
   ) {}
 
-  @Get('/')
-  async helloWorld(@Res() res: Response){
-    res.send('hello world');
-  }
-
-  // @Get('')
-  // async create(@Res() res: Response): Promise<void> {
-  //   res.render('form');
+  // @Get('/')
+  // async helloWorld(@Res() res: Response){
+  //   res.send('hello world');
   // }
+
+  @Get('/')
+  async create(@Res() res: Response): Promise<void> {
+    res.render('form');
+  }
 
   @Get('/all/view')
   async findAll(@Res() res: Response): Promise<any> {
