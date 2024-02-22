@@ -43,5 +43,15 @@ export class AppService {
     const allItems = await this.itemModel.find();
     return allItems;
   }
+
+  async delete(id: string): Promise<Item> {
+    const deletedItem = await this.itemModel.findByIdAndDelete(id);
+
+    if (!deletedItem) {
+      throw new Error('Item not found');
+    }
+
+    return deletedItem;
+  }
   
 }

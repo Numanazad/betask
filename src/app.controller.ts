@@ -1,4 +1,4 @@
-import { Controller, Get, Res, Post, Put, Body } from '@nestjs/common';
+import { Controller, Get, Res, Post, Put, Body, Param } from '@nestjs/common';
 import { Response } from 'express';
 import { AppService } from './app.service';
 import { CreateItemDto } from './dto/createDto';
@@ -41,5 +41,11 @@ export class AppController {
       console.log(error);
       res.status(500).send('Internal server error');
     }
+  }
+
+  @Post('/:id/delete')
+  async deleteItem(@Param('id') id: string, @Res() res: Response) {
+    await this.appService.delete(id);
+    res.redirect('/all/view');
   }
 }
